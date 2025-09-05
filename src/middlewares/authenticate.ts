@@ -6,10 +6,10 @@ export const verifyToken = (
   res: Response,
   next: NextFunction
 ) => {
-  const access_token = req.cookies["access_token"];
-  if (!access_token) return res.status(401).json({ error: "Missing token" });
+  const accessToken = req.cookies["access_token"];
+  if (!accessToken) return res.status(401).json({ error: "Missing token" });
 
-  const token = access_token.split(" ")[1];
+  const token = accessToken.split(" ")[1];
   if (!token) return res.status(401).json({ error: "Invalid token" });
 
   try {
